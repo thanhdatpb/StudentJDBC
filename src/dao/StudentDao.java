@@ -48,6 +48,20 @@ public class StudentDao {
     }
 
     /**
+     * get student by id
+     * @param id
+     * @return result
+     */
+    public Student findById(int id) {
+        for (Student student : findAll()) {
+            if (student.getId() == id) {
+                return student;
+            }
+        }
+        return null;
+    }
+
+    /**
      * add student
      * @param student
      * @return status
@@ -67,17 +81,41 @@ public class StudentDao {
         return false;
     }
 
+    /**
+     * update student
+     * @param student
+     * @return status
+     */
+    public boolean update(Student student) {
+        try {
+            PreparedStatement preparedStatement = CONNECTION.prepareStatement("update student set name = ?,age=?  where id = ?");
+            preparedStatement.setString(1, student.getName());
+            preparedStatement.setInt(2, student.getId());
+            preparedStatement.setInt(3, student.getId());
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            return true;
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
        StudentDao dao = new StudentDao();
-       Student student = new Student();
-       student.setId(1);
-       student.setName("Thanh Dat");
-       student.setAge(21);
-       if (dao.add(student)) {
-           System.out.println("Add Student Successfully");
-       }else {
-           System.out.println("Add failed");
-       }
+//       Student student = new Student();
+//       student.setId(1);
+//       student.setName("Thanh Dat");
+//       student.setAge(21);
+//       if (dao.add(student)) {
+//           System.out.println("Add Student Successfully");
+//       }else {
+//           System.out.println("Add failed");
+//       }
+
+        System.out.println(dao.findById(20));
+
+        Student thanhdat = dao.
     }
 
 }
