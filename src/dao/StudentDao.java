@@ -24,6 +24,10 @@ public class StudentDao {
         return null;
     }
 
+    public StudentDao() {
+
+    }
+
     /**
      * Select List Student Form DB
      * @return
@@ -101,21 +105,22 @@ public class StudentDao {
         return false;
     }
 
-    public static void main(String[] args) {
-       StudentDao dao = new StudentDao();
-//       Student student = new Student();
-//       student.setId(1);
-//       student.setName("Thanh Dat");
-//       student.setAge(21);
-//       if (dao.add(student)) {
-//           System.out.println("Add Student Successfully");
-//       }else {
-//           System.out.println("Add failed");
-//       }
-
-        System.out.println(dao.findById(20));
-
-        Student thanhdat = dao.
+    /**
+     * Delete student by id
+     * @param id
+     * @return student
+     */
+    public boolean delete(int id) {
+        try {
+            PreparedStatement preparedStatement = CONNECTION.prepareStatement("delete from student where id = ?");
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+            return true;
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
+
 
 }
