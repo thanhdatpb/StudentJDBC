@@ -76,34 +76,5 @@ public class Main {
                     break;
             }
         }
-
-
-//      Student student = new Student();
-//      student.setId(1);
-//      student.setName("Thanh Dat");
-        //       student.setAge(21);
-        //       if (dao.add(student)) {
-        //           System.out.println("Add Student Successfully");
-        //       }else {
-        //           System.out.println("Add failed");
-        //       }
-
-        //        System.out.println(dao.findById(20));
-        //
-        //        Student thanhdat = dao.findById(1);
-        //        if (thanhdat != null) {
-        //            thanhdat.setAge(22);
-        //        }
-        //        if (dao.update(thanhdat)) {
-        //            System.out.println("Updated Successfully");
-        //        }else {
-        //            System.out.println("Update Failed");
-        //        }
-
-//        if (dao.delete(3)) {
-//            System.out.println("Delete success");
-//        } else {
-//            System.out.println("Delete failed");
-//        }
     }
 }
